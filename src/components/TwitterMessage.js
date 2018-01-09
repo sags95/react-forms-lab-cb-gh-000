@@ -10,6 +10,8 @@ class TwitterMessage extends React.Component {
       remChars: 140,
       chars: 0
     };
+    this.charCounter = this.charCounter.bind(this);
+
   }
 
   charCounter = event => {
@@ -29,10 +31,13 @@ class TwitterMessage extends React.Component {
       <div>
         <strong>Your message:</strong>
         <input type="text"
-        //  value={this.state.value}
-          onChange={this.charCounter.bind(this)}
+          value={this.state.value}
+          onChange={this.charCounter}
         />
+        <div>
         <strong> Chars left: {this.state.remChars}</strong>
+        <strong> Total chars: {this.state.chars}</strong>
+        </div>
       </div>
     );
   }
